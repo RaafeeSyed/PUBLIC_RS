@@ -1,0 +1,105 @@
+hese *.RData files are read into R with a load() statement, rather than a read statement.
+
+
+load("yourdirectory/someworkspace.RData")
+
+clear environment
+rm(list = ls())
+
+
+rm will remove all of the objects that are stored in your global environment (which may be what you want) but will not unload any of the packages that you have loaded. 
+You can do both by restarting your R session in RStudio with the keyboard shortcut Ctrl+Shift+F10 which will totally clear your global environment of both objects and loaded packages.
+
+2754576       6
+
+2770856       6
+
+Linear Regression Output:
+
+Y^ = Intercept + (Coeff. of x *x) 
+
+x = 1 / SD value, where x is 1 SD above mean
+x = -1 / SD value, where x is 1 SD below mean
+
+x = 2 / SD value, where x is 2 SD above mean
+x = -2 / SD value, where x is 2 SD below mean
+
+and so on ...
+
+
+Research project
+Outline guide (see template on canvas) 1. 
+Introduction (~300 words). 2. Literature and theory (~500 words). 3. Data and methodology (~500 words). 4. Results (~750-1000 words). 5. Conclusion (~250-300 words) ▶ Summarise key points, tying results to literature. Discuss limitations.
+6. References.
+7. Appendix ▶ You can list some more details that didn’t have space in the methods (for instance the full wording of the survey questions you used).
+
+
+Logistic Regression Output:
+
+first calculate regression output as 
+
+Y^ = Intercept + (Coeff. of x *x) 
+
+We then use the inverse logit function to convert this into a probability.
+
+The inverse logit function is exp(Y^)/(1+exp(Y^))
+
+cover factor analysis, spatial data, randomisation or causality (content from weeks 9-12).
+
+## Standardized loadings (pattern matrix) based upon correlation matrix ##
+				 MR1 h2 u2 com
+## happiness 	0.64 0.41 0.59 1 
+## health 		0.52 0.28 0.72 1
+## finances 	0.63 0.39 0.61 1 
+## satisfaction 0.93 0.86 0.14 1 
+## freedom 		0.71 0.50 0.50 1
+
+MR: Minimum Residual
+A positive loading means that a higher response on this variable indicates a higher score on the combined measure of life quality created by this analysis. 
+A negative loading (if there was one) would suggest that a higher response predicts lower quality of life.
+
+h2: communalities of the variables
+These communalities are the total amount of common variance between the variable and the factor(s). Higher communalities are better. If communalities for a particular variable are low, 
+then that variable may struggle to load significantly on any factor.
+The communalities for the 𝑖th variable are computed by taking the sum of the squared loadings for that variable. To compute the communality for happiness, for instance, 
+we square the factor loading for this variable (if there was more than one dimension, we would square the loading for each then sum the results).
+The communality for a given variable can be interpreted as the proportion of variation in that variable explained by the factor(s). 
+If we perform multiple regression of happiness against the factor score, we obtain an R^2 of 0.41, indicating that about 41 per cent of 
+the variation in happiness (as measured by this variable) is explained by the factor score.
+
+One assessment of how well this model is doing can be obtained from the communalities. What you want to see is values that are close to one. 
+This would indicate that the model explains most of the variation for those variables. In this case, the model does better for some variables 
+than it does for others. Our results suggest the factor analysis does the best job of explaining variation in satisfaction. This makes sense, 
+as we’re trying to measure quality of life, and self-reported life satisfaction is likely the closest variable to this in the model.
+
+U2: Uniqueness
+This is the proportion of a variable’s variance that is not shared with a factor structure. Unique variance is composed of specific and error variance. 
+The existence of uniquenesses is what distinguishes factor analysis from principal components analysis. If the variables in the model are thought 
+to represent a ‘true’ or latent part of some phenomena, then factor analysis provides an estimate of the correlations with the latent factor(s) representing the data. 
+If we believe them to be measured without error, then principal components provides the most parsimonious description of the data. 
+When we look at our table factor loading table, the output in the third column is the direct inverse of the second; 
+the more the variance of a item is explained by the factor score(s), the less the proportion a variable’s variance will not shared with a factor structure.
+
+Com: Complexity
+The last column, com, is the complexity of the factor loadings for that variable (see below). This will be ‘1’ when you only have a single dimension, 
+but will (usually) increase as you increase the number of dimensions in your model
+
+For most measurement methods (factor analysis, IRT), we treat the available data as manifestations (or indicators) of the latent quantity.
+The inferential problem can be stated as:
+Conditional on observable data y, what should we believe about latent quantities x? 
+That is, we use the associations between observables values to estimate the latent.
+
+Types:
+Principal components analysis. A linear combination of variables, calculates principle components in a dataset.
+▶ Creates one or more index variables from a larger set of measured variables using a linear combination (basically a weighted average) of variables.
+▶ The created index variables are called components.
+▶ Aim is to estimate optimal way to decompose data: the optimal N of components, choice of measured variables for each component, and weights
+
+Why use it?
+▶ Transformation of X into a new coordinate system. 
+▶ The new variables (the principal components) are uncorrelated with one another.
+▶ A useful pre-analysis stage when we have a lot of indicators that are similar (correlated) with one another.
+▶ Which leads us to consider measurement models and index construction as a strategy for data reduction or dimension reduction.
+
+Factor analysis. Similar to PCA, but approaches data reduction in a fundamentally different way (more in a moment).
+Item Response Theory (IRT) Models. A Bayesian approach. Can incorporate priors, and take into account non-linear observations.
